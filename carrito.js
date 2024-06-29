@@ -145,28 +145,23 @@ document.querySelectorAll('.boton-comprar').forEach((boton, index) => {
 });
 
 function mostrarCartelSinStock() {
-    // Crear el cartel
+
     const cartel = document.createElement('div');
     cartel.className = 'cartel-sin-stock';
     cartel.innerText = "No hay stock suficiente";
 
-    // Crear el botón
     const botonCerrar = document.createElement('button');
     botonCerrar.innerText = 'Cerrar';
     botonCerrar.className = 'boton-close';
 
-    // Añadir evento para cerrar el cartel al hacer clic en el botón
     botonCerrar.addEventListener('click', () => {
         document.getElementById('carteles-sin-stock').removeChild(cartel);
     });
 
-    // Añadir el botón al cartel
     cartel.appendChild(botonCerrar);
 
-    // Añadir el cartel al contenedor
     document.getElementById('carteles-sin-stock').appendChild(cartel);
 
-    // Eliminar el cartel después de 2 segundos
     setTimeout(() => {
         if (document.getElementById('carteles-sin-stock').contains(cartel)) {
             document.getElementById('carteles-sin-stock').removeChild(cartel);
